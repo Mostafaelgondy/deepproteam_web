@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Deepproteam</title>
+    <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Core Design System -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/themes.css">
+    <link rel="stylesheet" href="../assets/css/client.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        'primary-dark': '#1d4ed8',
+                        accent: '#f59e0b',
+                        'slate-dark': '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 backdrop-blur">
+        <div class="container mx-auto max-w-7xl px-4 h-20 flex items-center justify-between">
+            <div class="text-2xl font-black tracking-tight">
+                <a href="../index.html">Deep<span class="text-primary">pro</span>team</a>
+            </div>
+            <a href="basket.html" class="text-sm font-bold text-slate-500 hover:text-primary transition">
+                <i class="fas fa-arrow-left mr-2"></i> Return to Basket
+            </a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto max-w-7xl px-4 py-10">
+        <h1 class="text-3xl font-black mb-10 animate-fadeUp">Secure Checkout</h1>
+
+        <form id="checkoutForm" class="flex flex-col lg:flex-row gap-10">
+            
+            <div class="flex-grow space-y-8 animate-fadeUp" style="animation-delay: 0.1s">
+                
+                <!-- Contact Info -->
+                <section class="card bg-white p-6 md:p-8 rounded-[2rem] border border-slate-100 shadow-sm">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-10 h-10 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-lg">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        Contact Information
+                    </h2>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" placeholder="you@example.com" required class="form-control py-3">
+                    </div>
+                </section>
+
+                <!-- Shipping Details -->
+                <section class="card bg-white p-6 md:p-8 rounded-[2rem] border border-slate-100 shadow-sm">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-10 h-10 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-lg">
+                            <i class="fas fa-shipping-fast"></i>
+                        </span>
+                        Shipping Details
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" required class="form-control py-3">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" required class="form-control py-3">
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label class="form-label">Street Address</label>
+                        <input type="text" placeholder="123 Business Way" required class="form-control py-3">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="form-group">
+                            <label class="form-label">City</label>
+                            <input type="text" required class="form-control py-3">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Postal Code</label>
+                            <input type="text" required class="form-control py-3">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Payment Method -->
+                <section class="card bg-white p-6 md:p-8 rounded-[2rem] border border-slate-100 shadow-sm">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-10 h-10 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-lg">
+                            <i class="fas fa-credit-card"></i>
+                        </span>
+                        Payment Method
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <label class="relative flex items-center p-4 border-2 border-primary bg-blue-50/50 rounded-2xl cursor-pointer transition-all">
+                            <input type="radio" name="payment" checked class="w-5 h-5 text-primary focus:ring-primary/20 accent-blue-600">
+                            <div class="ml-4 flex items-center gap-3 font-bold text-slate-800">
+                                <i class="fab fa-cc-visa text-2xl text-slate-700"></i>
+                                <span>Credit Card</span>
+                            </div>
+                        </label>
+                        <label class="relative flex items-center p-4 border-2 border-slate-100 hover:border-slate-200 rounded-2xl cursor-pointer transition-all">
+                            <input type="radio" name="payment" class="w-5 h-5 text-primary focus:ring-primary/20 accent-blue-600">
+                            <div class="ml-4 flex items-center gap-3 font-bold text-slate-500">
+                                <i class="fab fa-paypal text-2xl"></i>
+                                <span>PayPal</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="space-y-4 bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <div class="form-group">
+                            <label class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 block">Card Number</label>
+                            <input type="text" placeholder="0000 0000 0000 0000" class="form-control py-3 bg-white">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" placeholder="MM/YY" class="form-control py-3 bg-white">
+                            <input type="text" placeholder="CVC" class="form-control py-3 bg-white">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="w-full lg:w-[400px] flex-shrink-0 animate-fadeUp" style="animation-delay: 0.2s">
+                <div class="bg-slate-900 text-white p-8 rounded-[2.5rem] shadow-xl sticky top-28">
+                    <h3 class="text-xl font-bold mb-8">Order Summary</h3>
+                    
+                    <div id="summaryItems" class="space-y-4 mb-8">
+                        <!-- Items injected via JS -->
+                    </div>
+                    
+                    <div class="space-y-3 pt-6 border-t border-white/10 mb-8">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-400">Subtotal</span>
+                            <span class="total-amount-display">EGP 0.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-400">Shipping</span>
+                            <span class="text-green-400 font-bold uppercase text-[10px] tracking-widest bg-green-400/10 px-2 py-1 rounded">Free</span>
+                        </div>
+                        <div class="flex justify-between text-xl font-bold pt-4 border-t border-white/10">
+                            <span>Total</span>
+                            <span class="text-primary total-amount-display">EGP 0.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="flex items-center gap-2 text-slate-400">
+                                <img src="../assets/images/coin.svg" alt="coin" class="w-5 h-5">
+                                Coin Equivalent
+                            </span>
+                            <span id="coin-display" class="font-bold">0 coin</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-2xl font-black text-lg transition-all transform hover:-translate-y-1 shadow-lg shadow-primary/20 flex items-center justify-center gap-3">
+                        Complete Purchase
+                        <i class="fas fa-lock text-sm opacity-50"></i>
+                    </button>
+                    
+                    <div class="mt-6 flex items-center justify-center gap-2 text-slate-500 text-[11px] font-bold uppercase tracking-widest">
+                        <i class="fas fa-shield-alt text-primary"></i>
+                        Secure 256-bit SSL Payment
+                    </div>
+                </div>
+            </aside>
+
+        </form>
+    </main>
+
+    <footer class="py-12 border-t border-slate-200 mt-20">
+        <div class="container mx-auto max-w-7xl px-4 text-center">
+            <p class="text-slate-400 text-sm font-bold uppercase tracking-widest">&copy; 2026 Deepproteam Marketplace</p>
+        </div>
+    </footer>
+<script>
+(function () {
+  try {
+    const token = localStorage.getItem('access_token');
+    if (!token) return;
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = (payload && payload.exp ? payload.exp * 1000 : 0);
+    if (!exp || Date.now() > exp) return;
+    const role = payload.role || 'client';
+    let href = '../client/shop.html';
+    if (role === 'admin') href = '../admin/dashboard-admin.html';
+    else if (role === 'dealer') href = '../dealer/dashboard.html';
+    document.querySelectorAll('a[href="../login.html"], a[href="login.html"]').forEach(a => {
+      a.href = href;
+      a.textContent = 'Dashboard';
+    });
+  } catch (e) {}
+})();
+</script>
+<script>
+const token = localStorage.getItem('access_token');
+if (!token) {
+  window.location.href = '../login.html';
+} else {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    if (Date.now() > exp) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      window.location.href = '../login.html';
+    }
+  } catch(e) {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    window.location.href = '../login.html';
+  }
+}
+</script>
+
+    <script src="../assets/js/client/checkout.js"></script>
+</body>
+</html>

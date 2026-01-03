@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details | Deepproteam</title>
+    <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Core Design System -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/themes.css">
+    <link rel="stylesheet" href="../assets/css/client.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "primary-dark": "#1d4ed8",
+              accent: "#f59e0b",
+              "slate-dark": "#0f172a",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 antialiased">
+    <!-- NAV -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 backdrop-blur">
+      <div class="container mx-auto max-w-7xl px-4 h-20 flex items-center justify-between">
+        <div class="text-2xl font-black tracking-tight">
+            <a href="../index.html">Deep<span class="text-primary">pro</span>team</a>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <a
+            href="shop.html"
+            class="text-sm font-bold text-slate-500 hover:text-primary transition"
+          >
+            <i class="fas fa-arrow-left mr-2"></i> Back
+          </a>
+
+          <a href="basket.html" class="relative group">
+            <div
+              class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all"
+            >
+              <i class="fas fa-shopping-basket"></i>
+            </div>
+            <span
+              id="cart-count"
+              class="absolute -top-2 -right-2 bg-accent text-white text-[10px] font-black px-2 py-1 rounded-full border-2 border-white"
+              >0</span
+            >
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mx-auto max-w-7xl px-4 py-12">
+      <div class="flex flex-col lg:flex-row gap-16">
+        <!-- LEFT / IMAGES -->
+        <div class="lg:w-3/5 space-y-6 animate-fadeUp">
+          <div
+            class="relative rounded-[2.75rem] overflow-hidden bg-white border border-slate-100 shadow-lg group"
+          >
+            <div
+              class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none"
+            >
+              <div
+                class="absolute -inset-1 bg-gradient-to-br from-primary/30 via-accent/20 to-purple-500/20 blur-2xl"
+              ></div>
+            </div>
+
+            <img
+              id="currentImage"
+              src="https://images.unsplash.com/photo-1551288049-bbbda536339a?w=900"
+              class="w-full aspect-video object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
+              alt="Product Image"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="flex gap-4">
+            <button class="thumb-btn active" aria-label="View image 1">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bbbda536339a?w=150"
+                alt="Thumbnail 1"
+              />
+            </button>
+            <button class="thumb-btn" aria-label="View image 2">
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=150"
+                alt="Thumbnail 2"
+              />
+            </button>
+            <button class="thumb-btn" aria-label="View image 3">
+              <img
+                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=150"
+                alt="Thumbnail 3"
+              />
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT / INFO -->
+        <div class="lg:w-2/5 animate-fadeUp" style="animation-delay: 0.15s">
+          <div
+            class="relative bg-white rounded-[2.75rem] p-10 border border-slate-100 shadow-xl sticky top-28 overflow-hidden"
+          >
+            <!-- Glow -->
+            <div
+              class="absolute inset-0 opacity-0 hover:opacity-100 transition duration-700 pointer-events-none"
+            >
+              <div
+                class="absolute -inset-1 bg-gradient-to-br from-primary/20 to-purple-500/20 blur-2xl"
+              ></div>
+            </div>
+
+            <span
+              class="inline-block bg-blue-50 text-primary text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 animate-float"
+            >
+              New Release
+            </span>
+
+            <h1 class="text-3xl font-black leading-tight mb-3">
+              Premium Admin Dashboard UI Kit
+            </h1>
+
+            <p class="text-sm text-slate-500 mb-6">
+              By <span class="text-primary font-bold">ProDesign Studio</span>
+            </p>
+
+            <div class="flex items-center gap-4 mb-8">
+              <div class="flex text-accent">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-xs font-bold text-slate-500"
+                >(4.8 / 124 reviews)</span
+              >
+            </div>
+
+            <div class="flex items-end gap-4 mb-8">
+              <span class="text-4xl font-black">$59.00</span>
+              <span class="line-through text-slate-300 font-bold">$89.00</span>
+            </div>
+
+            <p class="text-slate-500 leading-relaxed mb-10">
+              50+ premium components, dark mode, scalable layouts — crafted for
+              modern SaaS products.
+            </p>
+
+            <div class="flex gap-4 mb-10">
+              <div class="flex items-center bg-slate-50 rounded-2xl border p-1">
+                <button class="qty-btn" aria-label="Decrease quantity">−</button>
+                <input
+                  id="qty"
+                  type="number"
+                  value="1"
+                  min="1"
+                  class="w-12 text-center font-black bg-transparent outline-none"
+                  aria-label="Quantity"
+                />
+                <button class="qty-btn" aria-label="Increase quantity">+</button>
+              </div>
+
+              <button
+                onclick="ProductController.addToBasket()"
+                class="flex-grow bg-primary text-white font-black rounded-2xl py-4 transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-primary/30 active:scale-95"
+              >
+                Add to Basket
+              </button>
+            </div>
+
+            <div class="space-y-4 pt-8 border-t border-slate-100">
+              <div
+                class="flex items-center gap-3 font-bold text-sm text-slate-600"
+              >
+                <i class="fas fa-check-circle text-green-500"></i> Instant
+                Digital Delivery
+              </div>
+              <div
+                class="flex items-center gap-3 font-bold text-sm text-slate-600"
+              >
+                <i class="fas fa-shield-alt text-primary"></i> Verified Quality
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABS -->
+      <section class="mt-24 animate-fadeUp" style="animation-delay: 0.3s">
+        <!-- Tab Buttons -->
+        <div class="flex gap-10 border-b border-slate-200 mb-10 text-sm font-black uppercase tracking-widest overflow-x-auto">
+            <button class="tab-btn active pb-4 border-b-2 border-primary -mb-[2px] text-primary transition-colors whitespace-nowrap" data-tab="description">Description</button>
+            <button class="tab-btn pb-4 border-b-2 border-transparent -mb-[2px] text-slate-400 hover:text-slate-600 transition-colors whitespace-nowrap" data-tab="specs">Specifications</button>
+            <button class="tab-btn pb-4 border-b-2 border-transparent -mb-[2px] text-slate-400 hover:text-slate-600 transition-colors whitespace-nowrap" data-tab="reviews">Reviews</button>
+        </div>
+
+        <!-- Content: Description -->
+        <div id="tab-description" class="tab-content max-w-3xl animate-fadeUp">
+            <h3 class="text-2xl font-black mb-6">Built for Scale</h3>
+            <p class="text-slate-500 text-lg leading-loose mb-8">
+                Enterprise-ready architecture designed for performance, maintainability, and long-term growth. Includes comprehensive documentation and TypeScript support out of the box.
+            </p>
+            <ul class="space-y-4 text-slate-600">
+                <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> <span>Modular component architecture</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> <span>Dark mode support included</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> <span>Fully responsive layouts</span></li>
+            </ul>
+        </div>
+
+        <!-- Content: Specs -->
+        <div id="tab-specs" class="tab-content max-w-3xl hidden animate-fadeUp">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-2">Framework</h4>
+                    <p class="text-slate-500">React 18, Next.js 14</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-2">Styling</h4>
+                    <p class="text-slate-500">Tailwind CSS 3.4</p>
+                </div>
+                 <div>
+                    <h4 class="font-bold text-slate-900 mb-2">Icons</h4>
+                    <p class="text-slate-500">FontAwesome 6 Pro</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-2">License</h4>
+                    <p class="text-slate-500">Standard Commercial</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content: Reviews -->
+        <div id="tab-reviews" class="tab-content max-w-3xl hidden animate-fadeUp">
+            <div class="space-y-6">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center font-bold text-slate-500 border border-slate-100">JD</div>
+                            <div>
+                                <div class="font-bold text-slate-900">John Doe</div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Verified Buyer</div>
+                            </div>
+                        </div>
+                        <div class="flex text-accent text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">Incredible quality! The code is clean and easy to customize. Saved me weeks of development time.</p>
+                </div>
+
+                 <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center font-bold text-slate-500 border border-slate-100">AS</div>
+                            <div>
+                                <div class="font-bold text-slate-900">Alice Smith</div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Verified Buyer</div>
+                            </div>
+                        </div>
+                        <div class="flex text-accent text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">Great design system. The components are very polished. Would love to see a Vue version in the future!</p>
+                </div>
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="bg-white border-t py-12 mt-24 text-center text-xs font-black tracking-widest text-slate-400"
+    >
+      © 2026 Deepproteam Marketplace
+    </footer>
+<script>
+(function () {
+  try {
+    const token = localStorage.getItem('access_token');
+    if (!token) return;
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = (payload && payload.exp ? payload.exp * 1000 : 0);
+    if (!exp || Date.now() > exp) return;
+    const role = payload.role || 'client';
+    let href = '../client/shop.html';
+    if (role === 'admin') href = '../admin/dashboard-admin.html';
+    else if (role === 'dealer') href = '../dealer/dashboard.html';
+    document.querySelectorAll('a[href="../login.html"], a[href="login.html"]').forEach(a => {
+      a.href = href;
+      a.textContent = 'Dashboard';
+    });
+  } catch (e) {}
+})();
+</script>
+<script>
+const token = localStorage.getItem('access_token');
+if (!token) {
+  window.location.href = '../login.html';
+} else {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    if (Date.now() > exp) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      window.location.href = '../login.html';
+    }
+  } catch(e) {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    window.location.href = '../login.html';
+  }
+}
+</script>
+
+    <!-- Scripts -->
+    <script src="../assets/js/core/app.js"></script>
+    <script src="../assets/js/client/basket.js"></script>
+    <script src="../assets/js/client/product.js"></script>
+  </body>
+</html>

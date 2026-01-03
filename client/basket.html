@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Basket | Deepproteam</title>
+    <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Core Design System -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/themes.css">
+    <link rel="stylesheet" href="../assets/css/client.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        'primary-dark': '#1d4ed8',
+                        accent: '#f59e0b',
+                        'slate-dark': '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 backdrop-blur">
+        <div class="container mx-auto max-w-7xl px-4 h-20 flex items-center justify-between">
+            <div class="text-2xl font-black tracking-tight">
+                <a href="../index.html">Deep<span class="text-primary">pro</span>team</a>
+            </div>
+            <a href="shop.html" class="text-sm font-bold text-slate-500 hover:text-primary transition">
+                <i class="fas fa-arrow-left mr-2"></i> Continue Shopping
+            </a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto max-w-7xl px-4 py-10">
+        <h1 class="text-3xl font-black mb-10 animate-fadeUp">Shopping Basket <span class="text-slate-300 ml-2" id="header-count">(0)</span></h1>
+
+        <div class="flex flex-col lg:flex-row gap-10">
+            
+            <!-- BASKET ITEMS -->
+            <div id="basket-items-container" class="flex-grow space-y-4 animate-fadeUp" style="animation-delay: 0.1s">
+                <!-- Items will be injected here via JS -->
+                <div class="flex items-center justify-center py-12">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+            <!-- SUMMARY -->
+            <aside class="w-full lg:w-96 flex-shrink-0 animate-fadeUp" style="animation-delay: 0.2s">
+                <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-xl sticky top-28">
+                    <h2 class="text-xl font-black mb-6">Summary</h2>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between text-slate-500 font-medium">
+                            <span>Subtotal</span>
+                            <span class="text-slate-900" id="subtotal">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-slate-500 font-medium">
+                            <span>Tax (Estimated)</span>
+                            <span class="text-slate-900" id="tax">$0.00</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-50 flex justify-between">
+                            <span class="text-lg font-bold">Order Total</span>
+                            <span class="text-2xl font-black text-primary" id="total">$0.00</span>
+                        </div>
+                    </div>
+
+                    <a href="checkout.html" class="block w-full btn btn-primary py-4 rounded-2xl shadow-lg shadow-primary/20 text-center flex items-center justify-center gap-2">
+                        Proceed to Checkout
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                            <i class="fas fa-lock text-primary"></i> Secure Transaction
+                        </div>
+                        <div class="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                            <i class="fas fa-undo text-primary"></i> 14-Day Quality Guarantee
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-slate-200 mt-20">
+        <div class="container mx-auto max-w-7xl px-4 text-center">
+            <p class="text-slate-400 text-sm font-bold uppercase tracking-widest">&copy; 2026 Deepproteam Marketplace</p>
+        </div>
+    </footer>
+<script>
+const token = localStorage.getItem('access_token');
+if (!token) {
+  window.location.href = '../login.html';
+} else {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    if (Date.now() > exp) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      window.location.href = '../login.html';
+    }
+  } catch(e) {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    window.location.href = '../login.html';
+  }
+}
+</script>
+
+    <!-- Scripts -->
+    <script src="../assets/js/core/app.js"></script>
+    <script src="../assets/js/client/basket.js"></script>
+</body>
+</html>

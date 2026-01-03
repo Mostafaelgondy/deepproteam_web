@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketplace | Deepproteam</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Core Design System -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/themes.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "primary-dark": "#1d4ed8",
+              accent: "#f59e0b",
+              "slate-dark": "#0f172a",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-slate-50 font-sans antialiased text-slate-900">
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+      <div
+        class="container mx-auto max-w-7xl px-4 h-20 flex items-center justify-between gap-4"
+      >
+        <div class="flex-shrink-0 text-2xl font-bold tracking-tight">
+          <a href="../index.html"
+            >Deep<span class="text-primary">pro</span>team</a
+          >
+        </div>
+
+        <div class="hidden md:flex flex-grow max-w-2xl relative">
+          <input
+            type="text"
+            placeholder="Search for assets, services, or dealers..."
+            class="w-full bg-slate-100 border-none rounded-xl py-3 pl-5 pr-12 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none"
+          />
+          <button
+            class="absolute right-2 top-1.5 bg-primary text-white w-10 h-10 rounded-lg hover:bg-primary-dark transition"
+          >
+            <i class="fas fa-search text-sm"></i>
+          </button>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <a
+            href="../login.html"
+            class="text-slate-600 font-semibold hover:text-primary transition"
+            >Account</a
+          >
+          <a href="basket.html" class="relative group">
+            <div
+              class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-700 group-hover:bg-primary group-hover:text-white transition-all"
+            >
+              <i class="fas fa-shopping-basket text-lg"></i>
+            </div>
+            <span
+              id="cart-count"
+              class="absolute -top-2 -right-2 bg-accent text-white text-[10px] font-bold px-2 py-1 rounded-full border-2 border-white"
+              >0</span
+            >
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto max-w-7xl px-4 py-8">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <aside class="w-full lg:w-64 flex-shrink-0 space-y-8">
+          <div>
+            <h3
+              class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4"
+            >
+              Categories
+            </h3>
+            <ul class="space-y-3">
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    class="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary/20"
+                  />
+                  <span
+                    class="text-slate-600 group-hover:text-primary transition"
+                    >UI Kits</span
+                  >
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    class="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary/20"
+                  />
+                  <span
+                    class="text-slate-600 group-hover:text-primary transition"
+                    >SaaS Templates</span
+                  >
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    class="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary/20"
+                  />
+                  <span
+                    class="text-slate-600 group-hover:text-primary transition"
+                    >Business Logic</span
+                  >
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4"
+            >
+              Price Range
+            </h3>
+            <div class="flex items-center gap-2">
+              <input
+                type="number"
+                placeholder="Min"
+                class="w-full bg-white border border-slate-200 rounded-lg p-2 text-sm outline-none focus:border-primary"
+              />
+              <span class="text-slate-400">-</span>
+              <input
+                type="number"
+                placeholder="Max"
+                class="w-full bg-white border border-slate-200 rounded-lg p-2 text-sm outline-none focus:border-primary"
+              />
+            </div>
+          </div>
+
+          <div>
+            <h3
+              class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4"
+            >
+              Dealer Rating
+            </h3>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="radio"
+                  name="rating"
+                  class="text-primary focus:ring-primary/20"
+                />
+                <span class="text-slate-600 text-sm">4★ & Up</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="radio"
+                  name="rating"
+                  class="text-primary focus:ring-primary/20"
+                />
+                <span class="text-slate-600 text-sm">3★ & Up</span>
+              </label>
+            </div>
+          </div>
+
+          <button
+            class="w-full py-3 border border-slate-200 rounded-xl text-slate-600 font-bold hover:bg-slate-100 transition"
+          >
+            Reset Filters
+          </button>
+        </aside>
+
+        <main class="flex-grow">
+          <header
+            class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8"
+          >
+            <h2 class="text-xl font-bold text-slate-900">
+              Showing <span class="text-primary">124</span> Results
+            </h2>
+            <div
+              class="flex items-center gap-3 bg-white border border-slate-200 px-4 py-2 rounded-xl"
+            >
+              <label
+                class="text-sm text-slate-400 whitespace-nowrap font-medium"
+                >Sort by:</label
+              >
+              <select
+                class="bg-transparent border-none text-sm font-bold text-slate-700 focus:ring-0 outline-none cursor-pointer"
+              >
+                <option>Newest Arrivals</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Most Popular</option>
+              </select>
+            </div>
+          </header>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+            id="shop-grid"
+          >
+            <!-- CARD -->
+            <div
+              class="group relative bg-white rounded-3xl overflow-hidden border border-slate-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20"
+            >
+              <!-- Gradient glow -->
+              <div
+                class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none"
+              >
+                <div
+                  class="absolute -inset-1 bg-gradient-to-br from-primary/30 via-accent/20 to-purple-500/20 blur-2xl"
+                ></div>
+              </div>
+
+              <!-- Image -->
+              <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                <div
+                  class="absolute top-4 left-4 z-10 backdrop-blur-md bg-white/70 text-primary text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg"
+                >
+                  Top Seller
+                </div>
+
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bbbda536339a?w=400"
+                  alt="Product"
+                  loading="lazy"
+                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
+                />
+
+                <a href="product.html" class="absolute inset-0 z-0"></a>
+              </div>
+
+              <!-- Content -->
+              <div class="relative p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <span
+                    class="text-[11px] font-extrabold uppercase tracking-widest text-primary"
+                  >
+                    UI Kit
+                  </span>
+                  <span
+                    class="flex items-center gap-1 text-sm font-bold text-slate-700"
+                  >
+                    <i class="fas fa-star text-accent"></i> 4.9
+                  </span>
+                </div>
+
+                <h3
+                  class="text-lg font-extrabold mb-1 transition-colors duration-300 group-hover:text-primary"
+                >
+                  <a href="product.html">Enterprise Dashboard V2</a>
+                </h3>
+
+                <p class="text-sm text-slate-400 mb-6">
+                  By
+                  <span class="text-slate-600 font-medium">SkyNet Systems</span>
+                </p>
+
+                <!-- Footer -->
+                <div
+                  class="flex items-center justify-between pt-4 border-t border-slate-100"
+                >
+                  <span class="text-2xl font-black text-slate-900">$59.00</span>
+
+                  <button
+                    class="relative w-12 h-12 rounded-xl bg-primary text-white shadow-lg shadow-primary/30 transition-all duration-300 ease-out hover:scale-110 hover:shadow-xl active:scale-95"
+                  >
+                    <i class="fas fa-cart-plus"></i>
+
+                    <!-- Button glow -->
+                    <span
+                      class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-tr from-white/30 to-transparent"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 flex items-center justify-center gap-2">
+            <button
+              class="w-10 h-10 rounded-lg border border-slate-200 text-slate-400 hover:bg-slate-100 transition disabled:opacity-50"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              class="w-10 h-10 rounded-lg bg-primary text-white font-bold"
+            >
+              1
+            </button>
+            <button
+              class="w-10 h-10 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 transition"
+            >
+              2
+            </button>
+            <button
+              class="w-10 h-10 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 transition"
+            >
+              3
+            </button>
+            <button
+              class="w-10 h-10 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 transition"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer class="bg-white border-t border-slate-200 py-10 mt-20">
+      <div class="container mx-auto max-w-7xl px-4 text-center">
+        <p class="text-slate-400 text-sm font-medium">
+          &copy; 2026 Deepproteam Marketplace. Professional Digital Assets.
+        </p>
+      </div>
+    </footer>
+<script>
+(function () {
+  try {
+    const token = localStorage.getItem('access_token');
+    if (!token) return;
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = (payload && payload.exp ? payload.exp * 1000 : 0);
+    if (!exp || Date.now() > exp) return;
+    const role = payload.role || 'client';
+    let href = '../client/shop.html';
+    if (role === 'admin') href = '../admin/dashboard-admin.html';
+    else if (role === 'dealer') href = '../dealer/dashboard.html';
+    document.querySelectorAll('a[href="../login.html"]').forEach(a => {
+      a.href = href;
+      a.textContent = 'Dashboard';
+    });
+  } catch (e) {}
+})();
+</script>
+<script>
+const token = localStorage.getItem('access_token');
+if (!token) {
+  window.location.href = '../login.html';
+} else {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    if (Date.now() > exp) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      window.location.href = '../login.html';
+    }
+  } catch(e) {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    window.location.href = '../login.html';
+  }
+}
+</script>
+
+    <script src="../assets/js/core/app.js"></script>
+    <script src="../assets/js/client/basket.js"></script>
+    <script src="../assets/js/client/shop.js"></script>
+  </body>
+</html>
