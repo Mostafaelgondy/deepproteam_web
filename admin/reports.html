@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Reports | Deepproteam Admin</title>
+    <!-- TailwindCSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Core Design System -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/themes.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom styles -->
+    <style>
+        /* Smooth transitions */
+        * {
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+        
+        /* Card hover effects */
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="hidden md:flex md:flex-col md:w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
+            <!-- Sidebar Header -->
+            <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold dark:text-white">DPT Control</span>
+                </div>
+                <button id="sidebar-toggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto custom-scrollbar">
+                <a href="dashboard-admin.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-th-large w-5 text-center"></i>
+                    <span class="font-medium">Overview</span>
+                </a>
+                <a href="dealers.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-users w-5 text-center"></i>
+                    <span class="font-medium">Dealer Manager</span>
+                </a>
+                <a href="reports.html" class="flex items-center space-x-3 p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300">
+                    <i class="fas fa-chart-bar w-5 text-center"></i>
+                    <span class="font-medium">Platform Reports</span>
+                </a>
+                <a href="plans.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-tags w-5 text-center"></i>
+                    <span class="font-medium">Subscription Tiers</span>
+                </a>
+                <a href="platform-settings.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-sliders-h w-5 text-center"></i>
+                    <span class="font-medium">System Settings</span>
+                </a>
+                
+                <div class="pt-8 mt-8 border-t border-gray-200 dark:border-gray-700">
+                    <a href="../index.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 dark:text-red-400">
+                        <i class="fas fa-power-off w-5 text-center"></i>
+                        <span class="font-medium">Sign Out</span>
+                    </a>
+                </div>
+            </nav>
+            
+            <!-- Sidebar Footer -->
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="text-xs text-gray-500 dark:text-gray-400 text-center">
+                    <p>DPT Control Panel v2.1</p>
+                    <p class="mt-1">© 2024 Deepproteam</p>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Mobile Sidebar Overlay -->
+        <div id="sidebar-overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
+        
+        <!-- Mobile Sidebar -->
+        <aside id="mobile-sidebar" class="md:hidden fixed left-0 top-0 h-full w-64 bg-white dark:bg-gray-800 z-40 transform -translate-x-full transition-transform duration-300 sidebar nav-links">
+            <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold dark:text-white">DPT Control</span>
+                </div>
+                <button id="mobile-sidebar-close" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                <a href="dashboard-admin.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-th-large w-5 text-center"></i>
+                    <span class="font-medium">Overview</span>
+                </a>
+                <a href="dealers.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-users w-5 text-center"></i>
+                    <span class="font-medium">Dealer Manager</span>
+                </a>
+                <a href="reports.html" class="flex items-center space-x-3 p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300">
+                    <i class="fas fa-chart-bar w-5 text-center"></i>
+                    <span class="font-medium">Platform Reports</span>
+                </a>
+                <a href="plans.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-tags w-5 text-center"></i>
+                    <span class="font-medium">Subscription Tiers</span>
+                </a>
+                <a href="platform-settings.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-sliders-h w-5 text-center"></i>
+                    <span class="font-medium">System Settings</span>
+                </a>
+                
+                <div class="pt-8 mt-8 border-t border-gray-200 dark:border-gray-700">
+                    <a href="../index.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 dark:text-red-400">
+                        <i class="fas fa-power-off w-5 text-center"></i>
+                        <span class="font-medium">Sign Out</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                <div class="px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center justify-between h-16">
+                        <!-- Left side: Mobile menu button and breadcrumb -->
+                        <div class="flex items-center">
+                            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 mobile-menu-toggle" aria-label="Toggle navigation menu">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            
+                            <div class="hidden md:flex items-center space-x-4 ml-4">
+                                <h1 class="text-xl font-semibold dark:text-white">Platform Reports</h1>
+                                <span class="text-gray-400">|</span>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Financial performance and platform growth metrics</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Right side: Actions -->
+                        <div class="flex items-center space-x-4">
+                            <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                            
+                            <div class="flex items-center space-x-2">
+                                <button class="btn btn-outline text-sm py-2"><i class="fas fa-download mr-2"></i> Export CSV</button>
+                                <button class="btn btn-primary text-sm py-2"><i class="fas fa-calendar mr-2"></i> Last 30 Days</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 custom-scrollbar">
+                
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-fadeUp">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 card-hover">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Platform GMV</p>
+                        <h3 class="text-3xl font-bold dark:text-white mt-2">$142,560.00</h3>
+                        <p class="mt-2 text-sm text-green-600 dark:text-green-400 flex items-center">
+                            <i class="fas fa-arrow-up mr-1"></i> 12.5% vs last month
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 card-hover">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Admin Commission (10%)</p>
+                        <h3 class="text-3xl font-bold dark:text-white mt-2">$14,256.00</h3>
+                        <p class="mt-2 text-sm text-green-600 dark:text-green-400 flex items-center">
+                            <i class="fas fa-arrow-up mr-1"></i> 8.2% vs last month
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 card-hover">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Active Subscriptions</p>
+                        <h3 class="text-3xl font-bold dark:text-white mt-2">482</h3>
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Across 3 tiers</p>
+                    </div>
+                </div>
+
+                <!-- Revenue Chart Section -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8 animate-fadeUp" style="animation-delay: 0.1s">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-semibold dark:text-white">Revenue Distribution</h3>
+                        <div class="flex space-x-2 bg-gray-100 dark:bg-gray-700 p-1 rounded-lg">
+                            <button class="px-3 py-1 bg-white dark:bg-gray-600 rounded shadow-sm text-sm font-medium text-gray-800 dark:text-white">Sales</button>
+                            <button class="px-3 py-1 hover:bg-gray-200 dark:hover:bg-gray-600 rounded text-sm font-medium text-gray-600 dark:text-gray-300">Subscriptions</button>
+                        </div>
+                    </div>
+                    <div class="h-64 bg-gray-50 dark:bg-gray-900/50 rounded-lg flex flex-col items-center justify-center text-gray-400 border border-dashed border-gray-300 dark:border-gray-700">
+                        <i class="fas fa-chart-area fa-3x mb-3 text-indigo-200 dark:text-indigo-900"></i>
+                        <p>Interactive Chart Component (Chart.js / D3.js)</p>
+                    </div>
+                </div>
+
+                <!-- Top Performing Dealers -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden animate-fadeUp" style="animation-delay: 0.2s">
+                    <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-semibold dark:text-white">Top Performing Dealers</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-gray-600 dark:text-gray-400">
+                            <thead class="bg-gray-50 dark:bg-gray-700 text-xs uppercase font-medium text-gray-500 dark:text-gray-300">
+                                <tr>
+                                    <th class="px-6 py-3">Dealer Name</th>
+                                    <th class="px-6 py-3">Total Sales</th>
+                                    <th class="px-6 py-3">Revenue Generated</th>
+                                    <th class="px-6 py-3">Commission</th>
+                                    <th class="px-6 py-3">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Quantum Solutions</td>
+                                    <td class="px-6 py-4">1,240</td>
+                                    <td class="px-6 py-4">$45,200</td>
+                                    <td class="px-6 py-4">$4,520</td>
+                                    <td class="px-6 py-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">
+                                            Top Tier
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Nexus Digital</td>
+                                    <td class="px-6 py-4">890</td>
+                                    <td class="px-6 py-4">$28,150</td>
+                                    <td class="px-6 py-4">$2,815</td>
+                                    <td class="px-6 py-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                            Active
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Mobile Sidebar Toggle Logic
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileSidebar = document.getElementById('mobile-sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const mobileSidebarClose = document.getElementById('mobile-sidebar-close');
+
+        function toggleMobileSidebar() {
+            const isClosed = mobileSidebar.classList.contains('-translate-x-full');
+            if (isClosed) {
+                mobileSidebar.classList.remove('-translate-x-full');
+                sidebarOverlay.classList.remove('hidden');
+            } else {
+                mobileSidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            }
+        }
+
+        if(mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMobileSidebar);
+        if(mobileSidebarClose) mobileSidebarClose.addEventListener('click', toggleMobileSidebar);
+        if(sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMobileSidebar);
+
+        // Theme Management
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check local storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            if(themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            html.classList.remove('dark');
+            if(themeToggle) themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+        
+        if(themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    html.classList.add('dark');
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        }
+        
+    </script>
+    <script>
+const token = localStorage.getItem('access_token');
+if (!token) {
+  window.location.href = '../login.html';
+} else {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    if (Date.now() > exp) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      window.location.href = '../login.html';
+    }
+  } catch(e) {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    window.location.href = '../login.html';
+  }
+}
+</script>
+
+</body>
+</html>

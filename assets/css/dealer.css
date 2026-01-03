@@ -1,0 +1,163 @@
+/**
+ * Deepproteam - Dealer Portal Styles
+ * Focused on sales analytics, inventory tables, and vendor-specific UI.
+ */
+
+/* --- Dealer Layout Variables --- */
+:root {
+    --dealer-sidebar-width: 260px;
+    --dealer-success-bg: #f0fdf4;
+    --dealer-success-text: #166534;
+}
+
+/* --- Dashboard Grid Layout --- */
+.dashboard-body {
+    padding: var(--space-lg);
+    background-color: var(--bg-soft);
+    min-height: 100vh;
+}
+
+/* --- Metric Cards --- */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.mini-card {
+    background: white;
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-card span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.mini-card strong {
+    font-size: 1.5rem;
+    margin-top: 5px;
+    color: var(--text-main);
+}
+
+/* --- Responsive Data Tables --- */
+.table-container {
+    background: white;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    margin-top: var(--space-md);
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.responsive-table th {
+    background: var(--bg-soft);
+    padding: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--secondary);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.responsive-table td {
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.responsive-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- Product Identity in Tables --- */
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.product-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    background: #eee;
+}
+
+.product-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name small {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+/* --- Action Buttons --- */
+.action-menu {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon-sm {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--secondary);
+    transition: all 0.2s;
+}
+
+.btn-icon-sm:hover {
+    background: var(--bg-soft);
+    color: var(--primary);
+}
+
+/* --- Subscription/Plan Cards --- */
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+
+.plan-card {
+    background: white;
+    border: 2px solid var(--border-color);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.plan-card.active {
+    border-color: var(--primary);
+    position: relative;
+}
+
+.plan-card.active::after {
+    content: "Current Plan";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+}

@@ -1,0 +1,113 @@
+/* * Deepproteam - Admin Styles
+ * Specific styles for platform management and dealer oversight.
+ */
+
+/* --- Admin Theme Variables --- */
+:root {
+    --admin-primary: #1e293b; /* Slate 800 */
+    --admin-accent: #3b82f6;  /* Blue 500 */
+    --system-log-info: #0ea5e9;
+    --system-log-warn: #f59e0b;
+    --system-log-crit: #ef4444;
+}
+
+/* --- Admin Sidebar Overrides --- */
+.sidebar.admin-variant {
+    background-color: var(--admin-primary);
+}
+
+.sidebar.admin-variant .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- System Health Grid --- */
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Activity Logs --- */
+.log-container {
+    background: #f8fafc;
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+}
+
+.log-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.85rem;
+}
+
+.log-item:last-child {
+    border-bottom: none;
+}
+
+.log-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.log-icon.info { background: #e0f2fe; color: var(--system-log-info); }
+.log-icon.warn { background: #fef3c7; color: var(--system-log-warn); }
+.log-icon.crit { background: #fee2e2; color: var(--system-log-crit); }
+
+/* --- Dealer Verification Management --- */
+.verification-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    border-left: 4px solid var(--admin-accent);
+}
+
+.dealer-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.dealer-meta .doc-link {
+    font-size: 0.8rem;
+    color: var(--admin-accent);
+    text-decoration: none;
+    margin-top: 0.25rem;
+}
+
+/* --- Platform Revenue Summary --- */
+.revenue-chart-placeholder {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(180deg, #f1f5f9 0%, #ffffff 100%);
+    border: 1px dashed #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    border-radius: var(--radius-md);
+}
+
+/* --- Admin Moderation Badges --- */
+.badge-admin {
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-flagged { background: #fee2e2; color: #b91c1c; }
+.badge-verified { background: #dcfce7; color: #15803d; }

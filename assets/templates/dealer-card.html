@@ -1,0 +1,44 @@
+<div class="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 p-6 flex flex-col h-full">
+    
+    <div class="flex justify-between items-start mb-6">
+        <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center overflow-hidden p-2">
+            <img src="{{dealer_logo}}" alt="{{dealer_name}}" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" onerror="this.src='../assets/images/shop-placeholder.png'">
+        </div>
+        
+        <div class="flex flex-col items-end">
+            {{verification_status}}
+            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-2">Member since {{join_date}}</span>
+        </div>
+    </div>
+
+    <div class="mb-6 flex-grow">
+        <h3 class="text-xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-primary transition-colors">
+            {{dealer_name}}
+        </h3>
+        <p class="text-slate-500 text-sm mt-2 line-clamp-2 font-medium">
+            {{business_bio}}
+        </p>
+    </div>
+
+    <div class="grid grid-cols-3 gap-2 py-4 border-y border-slate-50 mb-6">
+        <div class="text-center">
+            <span class="block text-xs font-black text-slate-900">{{total_products}}</span>
+            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">Products</span>
+        </div>
+        <div class="text-center border-x border-slate-50">
+            <span class="block text-xs font-black text-slate-900">{{avg_rating}}</span>
+            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">Rating</span>
+        </div>
+        <div class="text-center">
+            <span class="block text-xs font-black text-slate-900">{{total_sales}}</span>
+            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">Sales</span>
+        </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+        {{primary_action}}
+        <button class="p-3 rounded-xl bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors">
+            <i class="fas fa-envelope"></i>
+        </button>
+    </div>
+</div>

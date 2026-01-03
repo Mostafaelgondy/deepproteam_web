@@ -1,0 +1,147 @@
+/**
+ * Deepproteam - Client & Marketplace Styles
+ * Focuses on product presentation, shopping experience, and checkout flow.
+ */
+
+/* --- Product Grid & Cards --- */
+.shop-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+}
+
+.product-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.product-image {
+    position: relative;
+    aspect-ratio: 16/10;
+    background: #f1f5f9;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Quick Add Overlay */
+.quick-add {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+}
+
+.product-card:hover .quick-add {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-info {
+    padding: var(--space-md);
+}
+
+.category-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* --- Basket & Checkout Layouts --- */
+.basket-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-base);
+}
+
+@media (min-width: 640px) {
+    .basket-item {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.basket-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+}
+
+@media (min-width: 1024px) {
+    .checkout-grid {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+
+/* --- Form Styling --- */
+.form-group {
+    margin-bottom: var(--space-md);
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* --- Status Badges --- */
+.status-pill {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-pill.active { background: #dcfce7; color: #15803d; }
+.status-pill.pending { background: #fef3c7; color: #b45309; }
