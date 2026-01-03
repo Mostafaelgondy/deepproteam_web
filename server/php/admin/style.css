@@ -1,0 +1,13 @@
+body{font-family:Arial,Helvetica,sans-serif;background:#f6f7fb;color:#222;margin:0}
+.wrap{max-width:980px;margin:0 auto;padding:16px}
+.admin-header{background:#0b5cff;color:#fff;padding:12px 0}
+.admin-header h1{display:inline;margin:0 16px}
+.admin-header nav{display:inline}
+.admin-header nav a{color:#fff;margin-right:12px;text-decoration:none}
+.cards{display:flex;gap:12px;margin:16px 0}
+.card{background:#fff;padding:12px;border-radius:6px;flex:1;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.list{width:100%;border-collapse:collapse;background:#fff}
+.list th,.list td{padding:8px;border:1px solid #eee}
+form label{display:block;margin:8px 0}
+button{background:#0b5cff;color:#fff;border:none;padding:8px 12px;border-radius:4px}
+.error{background:#ffdddd;padding:8px;border:1px solid #ffbcbc;margin:8px 0}
