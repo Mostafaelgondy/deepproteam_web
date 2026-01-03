@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders | Deepproteam Dealer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Core Design System -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/themes.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        'primary-dark': '#1d4ed8',
+                        'slate-dark': '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-slate-dark text-white flex flex-col fixed h-full z-50">
+            <div class="p-6 border-b border-white/10">
+                <div class="text-xl font-black tracking-tight uppercase">
+                    Deep<span class="text-primary">pro</span>team
+                </div>
+                <div class="mt-2 inline-block bg-primary/20 text-primary text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded border border-primary/30">
+                    Dealer Portal
+                </div>
+            </div>
+            
+            <nav class="flex-grow p-4 space-y-2">
+                <a href="dashboard.html" class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all group">
+                    <i class="fas fa-chart-line w-5 text-center group-hover:text-primary"></i>
+                    <span class="font-bold">Dashboard</span>
+                </a>
+                <a href="products.html" class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all group">
+                    <i class="fas fa-boxes w-5 text-center group-hover:text-primary"></i>
+                    <span class="font-bold">My Products</span>
+                </a>
+                <a href="orders.html" class="flex items-center gap-4 px-4 py-3 bg-primary text-white rounded-xl font-bold transition-all shadow-lg shadow-primary/20">
+                    <i class="fas fa-shopping-cart w-5 text-center"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="subscription.html" class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all group">
+                    <i class="fas fa-star w-5 text-center group-hover:text-primary"></i>
+                    <span class="font-bold">Subscription</span>
+                </a>
+            </nav>
+
+            <div class="p-4 border-t border-white/10 text-center">
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-4">V 5.0 Stable</p>
+            </div>
+        </aside>
+
+        <main class="flex-grow ml-64 min-h-screen">
+            <header class="h-24 bg-white border-b border-slate-200 px-8 flex items-center justify-between sticky top-0 z-40">
+                <div>
+                    <h1 class="text-2xl font-black text-slate-900 tracking-tight">Order Management</h1>
+                    <p class="text-slate-400 text-sm font-medium">Track and fulfill your customer purchases.</p>
+                </div>
+                <button class="bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold py-2.5 px-5 rounded-xl transition-all flex items-center gap-2 text-sm shadow-sm">
+                    <i class="fas fa-download text-primary"></i> Export CSV
+                </button>
+            </header>
+
+            <div class="p-8 max-w-7xl mx-auto space-y-6 animate-fadeUp">
+                
+                <div class="bg-white p-4 rounded-[1.5rem] border border-slate-100 shadow-sm flex flex-wrap items-center gap-4">
+                    <div class="relative flex-grow min-w-[300px]">
+                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" placeholder="Filter by Order ID or Customer Name..." 
+                            class="w-full bg-slate-50 border-none rounded-xl py-3 pl-12 pr-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none">
+                    </div>
+                    <select class="bg-slate-50 border-none rounded-xl py-3 px-4 text-sm font-bold text-slate-600 focus:ring-2 focus:ring-primary/20 outline-none cursor-pointer">
+                        <option value="all">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                        <option value="refunded">Refunded</option>
+                    </select>
+                    <input type="date" class="bg-slate-50 border-none rounded-xl py-3 px-4 text-sm font-bold text-slate-600 focus:ring-2 focus:ring-primary/20 outline-none">
+                </div>
+
+                <div class="bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50/50">
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Order ID</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Date</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Customer</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Product</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Revenue</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Status</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400 text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-50">
+                                <tr class="hover:bg-slate-50/80 transition-all group">
+                                    <td class="px-6 py-5">
+                                        <span class="font-black text-slate-900">#DPT-7701</span>
+                                    </td>
+                                    <td class="px-6 py-5 text-sm font-bold text-slate-500">Oct 24, 2026</td>
+                                    <td class="px-6 py-5">
+                                        <div class="flex flex-col">
+                                            <span class="font-bold text-slate-900">James Miller</span>
+                                            <span class="text-[11px] text-slate-400 font-medium lowercase">james@email.com</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-5">
+                                        <span class="text-sm font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-lg">Cloud Logic Pro</span>
+                                    </td>
+                                    <td class="px-6 py-5 font-black text-slate-900">$0.00</td>
+                                    <td class="px-6 py-5">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 text-green-600 text-[10px] font-black uppercase tracking-wider border border-green-100">
+                                            Completed
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-5">
+                                        <div class="flex justify-center gap-2">
+                                            <button class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-primary hover:text-white transition-all shadow-sm" title="View Details">
+                                                <i class="fas fa-eye text-xs"></i>
+                                            </button>
+                                            <button class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-primary hover:text-white transition-all shadow-sm" title="Contact Buyer">
+                                                <i class="fas fa-envelope text-xs"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr class="hover:bg-slate-50/80 transition-all group">
+                                    <td class="px-6 py-5">
+                                        <span class="font-black text-slate-900">#DPT-7702</span>
+                                    </td>
+                                    <td class="px-6 py-5 text-sm font-bold text-slate-500">Oct 25, 2026</td>
+                                    <td class="px-6 py-5">
+                                        <div class="flex flex-col">
+                                            <span class="font-bold text-slate-900">Sarah Connor</span>
+                                            <span class="text-[11px] text-slate-400 font-medium lowercase">s.connor@tech.io</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-5">
+                                        <span class="text-sm font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-lg">Auth Service Module</span>
+                                    </td>
+                                    <td class="px-6 py-5 font-black text-slate-900">$0.00</td>
+                                    <td class="px-6 py-5">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-[10px] font-black uppercase tracking-wider border border-amber-100">
+                                            Pending
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-5">
+                                        <div class="flex justify-center gap-2">
+                                            <button class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-primary hover:text-white transition-all shadow-sm" title="View Details">
+                                                <i class="fas fa-eye text-xs"></i>
+                                            </button>
+                                            <button class="w-9 h-9 flex items-center justify-center rounded-lg bg-green-50 text-green-600 hover:bg-green-600 hover:text-white transition-all shadow-sm" title="Mark as Fulfilled">
+                                                <i class="fas fa-check text-xs"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="p-6 bg-slate-50/30 border-t border-slate-50 flex items-center justify-between">
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                            Showing 1-10 of 45 orders
+                        </p>
+                        <div class="flex items-center gap-2">
+                            <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-300 cursor-not-allowed">
+                                <i class="fas fa-chevron-left text-xs"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary text-white font-black shadow-lg shadow-primary/20">
+                                1
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 font-black hover:border-primary hover:text-primary transition-all">
+                                2
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:border-primary hover:text-primary transition-all">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<script>
+const token = localStorage.getItem('access_token');
+if (!token) {
+  window.location.href = '../login.html';
+} else {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    if (Date.now() > exp) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      window.location.href = '../login.html';
+    }
+  } catch(e) {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    window.location.href = '../login.html';
+  }
+}
+</script>
+
+    <script src="../assets/js/dealer/orders.js"></script>
+</body>
+</html>

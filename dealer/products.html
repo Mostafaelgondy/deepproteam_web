@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Products | Deepproteam Dealer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Core Design System -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/themes.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        'primary-dark': '#1d4ed8',
+                        'slate-dark': '#0f172a',
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                        '3xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-slate-dark text-white flex flex-col fixed h-full z-50">
+            <div class="p-6 border-b border-white/10">
+                <div class="text-xl font-black tracking-tight uppercase">
+                    Deep<span class="text-primary">pro</span>team
+                </div>
+                <div class="mt-2 inline-block bg-primary/20 text-primary text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded border border-primary/30">
+                    Dealer Portal
+                </div>
+            </div>
+            
+            <nav class="flex-grow p-4 space-y-2">
+                <a href="dashboard.html" class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all group">
+                    <i class="fas fa-chart-line w-5 text-center group-hover:text-primary"></i>
+                    <span class="font-bold">Dashboard</span>
+                </a>
+                <a href="products.html" class="flex items-center gap-4 px-4 py-3 bg-primary text-white rounded-xl font-bold transition-all shadow-lg shadow-primary/20">
+                    <i class="fas fa-boxes w-5 text-center"></i>
+                    <span>My Products</span>
+                </a>
+                <a href="orders.html" class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all group">
+                    <i class="fas fa-shopping-cart w-5 text-center group-hover:text-primary"></i>
+                    <span class="font-bold">Orders</span>
+                </a>
+                <a href="subscription.html" class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all group">
+                    <i class="fas fa-star w-5 text-center group-hover:text-primary"></i>
+                    <span class="font-bold">Subscription</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-grow ml-64 min-h-screen">
+            <header class="h-24 bg-white border-b border-slate-200 px-8 flex items-center justify-between sticky top-0 z-40">
+                <div>
+                    <h1 class="text-2xl font-black text-slate-900 tracking-tight">Product Inventory</h1>
+                    <p class="text-slate-400 text-sm font-medium">Manage, edit, and track your marketplace listings.</p>
+                </div>
+                <button onclick="openModal()" class="bg-primary hover:bg-primary-dark text-white font-bold py-2.5 px-6 rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-primary/25">
+                    <i class="fas fa-plus"></i> Add New Product
+                </button>
+            </header>
+
+            <div class="p-8 max-w-7xl mx-auto space-y-6 animate-fadeUp">
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between">
+                        <div>
+                            <p class="text-[11px] font-black uppercase tracking-widest text-slate-400">Active Listings</p>
+                            <h3 class="text-3xl font-black text-slate-900 mt-1">0</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-check-circle text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between">
+                        <div>
+                            <p class="text-[11px] font-black uppercase tracking-widest text-slate-400">Out of Stock</p>
+                            <h3 class="text-3xl font-black text-red-500 mt-1">0</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-exclamation-triangle text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between">
+                        <div>
+                            <p class="text-[11px] font-black uppercase tracking-widest text-slate-400">Drafts</p>
+                            <h3 class="text-3xl font-black text-slate-900 mt-1">0</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-slate-50 text-slate-400 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-file-edit text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50/50">
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">Product</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">Category</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">Price</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">Stock</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">Sales</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">Status</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400 text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-50">
+                                <tr class="hover:bg-slate-50/50 transition-all group">
+                                    <td class="px-6 py-5">
+                                        <div class="flex items-center gap-4">
+                                            <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?w=100" class="w-12 h-12 rounded-xl object-cover border border-slate-100" alt="UI Kit">
+                                            <div class="flex flex-col">
+                                                <span class="font-black text-slate-900 group-hover:text-primary transition-colors">SaaS UI Framework</span>
+                                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">ID: #PRD-001</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-5 text-sm font-bold text-slate-600">UI Kits</td>
+                                    <td class="px-6 py-5 font-black text-slate-900">$0.00</td>
+                                    <td class="px-6 py-5">
+                                        <span class="text-[11px] font-black text-green-600 bg-green-50 px-2 py-1 rounded-md uppercase border border-green-100">Unlimited</span>
+                                    </td>
+                                    <td class="px-6 py-5 font-bold text-slate-500">0</td>
+                                    <td class="px-6 py-5">
+                                        <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[10px] font-black uppercase tracking-wider border border-blue-100">Active</span>
+                                    </td>
+                                    <td class="px-6 py-5">
+                                        <div class="flex justify-center gap-2">
+                                            <button class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-primary hover:text-white transition-all shadow-sm">
+                                                <i class="fas fa-edit text-xs"></i>
+                                            </button>
+                                            <button class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 text-red-400 hover:bg-red-500 hover:text-white transition-all shadow-sm">
+                                                <i class="fas fa-trash text-xs"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 transition-all group">
+                                    <td class="px-6 py-5">
+                                        <div class="flex items-center gap-4">
+                                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100" class="w-12 h-12 rounded-xl object-cover border border-slate-100" alt="SEO">
+                                            <div class="flex flex-col">
+                                                <span class="font-black text-slate-900 group-hover:text-primary transition-colors">SEO Master Plugin</span>
+                                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">ID: #PRD-002</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-5 text-sm font-bold text-slate-600">Plugins</td>
+                                    <td class="px-6 py-5 font-black text-slate-900">$0.00</td>
+                                    <td class="px-6 py-5">
+                                        <span class="text-[11px] font-black text-amber-600 bg-amber-50 px-2 py-1 rounded-md uppercase border border-amber-100">15 Left</span>
+                                    </td>
+                                    <td class="px-6 py-5 font-bold text-slate-500">0</td>
+                                    <td class="px-6 py-5">
+                                        <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-[10px] font-black uppercase tracking-wider border border-amber-100">Paused</span>
+                                    </td>
+                                    <td class="px-6 py-5">
+                                        <div class="flex justify-center gap-2">
+                                            <button class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-primary hover:text-white transition-all shadow-sm">
+                                                <i class="fas fa-edit text-xs"></i>
+                                            </button>
+                                            <button class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 text-red-400 hover:bg-red-500 hover:text-white transition-all shadow-sm">
+                                                <i class="fas fa-trash text-xs"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="productModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl relative z-10 overflow-hidden transform transition-all">
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+                <h2 class="text-xl font-black text-slate-900">Add New Product</h2>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 text-2xl font-light">&times;</button>
+            </div>
+            <form class="p-8 space-y-6">
+                <div class="space-y-2">
+                    <label class="text-[11px] font-black uppercase tracking-widest text-slate-400">Product Name</label>
+                    <input type="text" placeholder="e.g. Professional Dashboard Kit" 
+                        class="w-full bg-slate-50 border-none rounded-xl py-4 px-5 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium">
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label class="text-[11px] font-black uppercase tracking-widest text-slate-400">Category</label>
+                        <select class="w-full bg-slate-50 border-none rounded-xl py-4 px-5 text-sm focus:ring-2 focus:ring-primary/20 outline-none font-medium appearance-none">
+                            <option>UI Kits</option>
+                            <option>SaaS Templates</option>
+                            <option>Plugins</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[11px] font-black uppercase tracking-widest text-slate-400">Price ($)</label>
+                        <input type="number" placeholder="49.99" 
+                            class="w-full bg-slate-50 border-none rounded-xl py-4 px-5 text-sm focus:ring-2 focus:ring-primary/20 outline-none font-medium">
+                    </div>
+                </div>
+
+                <button type="button" class="w-full bg-primary hover:bg-primary-dark text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-primary/30 uppercase tracking-widest text-xs">
+                    Publish to Marketplace
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/dealer/products.js"></script>
+    <script>
+        function openModal() { 
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeModal() { 
+            const modal = document.getElementById('productModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        
+    </script>
+    <script>
+const token = localStorage.getItem('access_token');
+if (!token) {
+  window.location.href = '../login.html';
+} else {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    if (Date.now() > exp) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      window.location.href = '../login.html';
+    }
+  } catch(e) {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    window.location.href = '../login.html';
+  }
+}
+</script>
+
+</body>
+</html>

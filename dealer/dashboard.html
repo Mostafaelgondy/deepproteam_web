@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealer Dashboard | Deepproteam</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Core Design System -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/themes.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        'primary-dark': '#1d4ed8',
+                        'slate-dark': '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-slate-dark text-white flex flex-col fixed h-full z-50 transition-all sidebar nav-links">
+            <div class="p-6 border-b border-white/10">
+                <div class="text-xl font-black tracking-tight uppercase">
+                    Deep<span class="text-primary">pro</span>team
+                </div>
+            </div>
+            
+            <nav class="flex-grow p-4 space-y-2">
+                <a href="dashboard.html" class="flex items-center gap-4 px-4 py-3 bg-primary text-white rounded-xl font-bold transition-all shadow-lg shadow-primary/20">
+                    <i class="fas fa-th-large w-5 text-center"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="products.html" class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all group">
+                    <i class="fas fa-box w-5 text-center group-hover:text-primary"></i>
+                    <span>My Products</span>
+                </a>
+                <a href="orders.html" class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all group">
+                    <i class="fas fa-shopping-cart w-5 text-center group-hover:text-primary"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="subscription.html" class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all group">
+                    <i class="fas fa-credit-card w-5 text-center group-hover:text-primary"></i>
+                    <span>Subscription</span>
+                </a>
+            </nav>
+
+            <div class="p-4 border-t border-white/10">
+                <a href="../login.html" class="flex items-center gap-4 px-4 py-3 text-red-400 hover:bg-red-400/10 rounded-xl transition-all font-bold">
+                    <i class="fas fa-sign-out-alt w-5 text-center"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Mobile Sidebar Overlay -->
+        <div class="sidebar-overlay mobile-menu-toggle"></div>
+
+        <main class="flex-grow ml-64 min-h-screen main-content">
+            
+            <header class="h-20 bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 px-8 flex items-center justify-between">
+                <button class="md:hidden text-2xl text-slate-600 mr-4 mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="relative w-96">
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" placeholder="Search analytics..." 
+                        class="w-full bg-slate-100 border-none rounded-2xl py-2.5 pl-12 pr-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none">
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <button class="relative w-10 h-10 flex items-center justify-center text-slate-500 hover:bg-slate-100 rounded-xl transition-all">
+                        <i class="fas fa-bell"></i>
+                        <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+                    </button>
+                    <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
+                        <div class="text-right">
+                            <p class="text-sm font-black text-slate-900 leading-none">Dealer Pro</p>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Verified Seller</p>
+                        </div>
+                        <img src="https://ui-avatars.com/api/?name=Dealer+Pro&background=2563eb&color=fff" 
+                            alt="Profile" class="w-10 h-10 rounded-xl object-cover shadow-sm ring-2 ring-slate-50">
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-8 max-w-7xl mx-auto">
+                <div class="mb-10 animate-fadeUp">
+                    <h1 class="text-3xl font-black text-slate-900 tracking-tight">Welcome back, DeepPro Seller! 👋</h1>
+                    <p class="text-slate-500 mt-1 font-medium">Here is what's happening with your store today.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 animate-fadeUp" style="animation-delay: 0.1s">
+                    <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex items-center justify-between group hover:border-primary/30 transition-all stat-card">
+                        <div class="flex items-center gap-5">
+                            <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-xl transition-colors group-hover:bg-primary group-hover:text-white">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Total Revenue</p>
+                                <h3 class="text-2xl font-black text-slate-900">$0.00</h3>
+                            </div>
+                        </div>
+                        <span class="bg-green-100 text-green-600 text-[10px] font-black px-2 py-1 rounded-lg">+0%</span>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex items-center justify-between group hover:border-primary/30 transition-all">
+                        <div class="flex items-center gap-5">
+                            <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-xl transition-colors group-hover:bg-primary group-hover:text-white">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Active Orders</p>
+                                <h3 class="text-2xl font-black text-slate-900">0</h3>
+                            </div>
+                        </div>
+                        <span class="bg-green-100 text-green-600 text-[10px] font-black px-2 py-1 rounded-lg">+0%</span>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex items-center justify-between group hover:border-primary/30 transition-all">
+                        <div class="flex items-center gap-5">
+                            <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-xl transition-colors group-hover:bg-primary group-hover:text-white">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Total Customers</p>
+                                <h3 class="text-2xl font-black text-slate-900">0</h3>
+                            </div>
+                        </div>
+                        <span class="bg-slate-100 text-slate-500 text-[10px] font-black px-2 py-1 rounded-lg">0%</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden animate-fadeUp" style="animation-delay: 0.2s">
+                    <div class="p-6 border-b border-slate-50 flex items-center justify-between">
+                        <h2 class="text-xl font-black text-slate-900 tracking-tight">Recent Orders</h2>
+                        <a href="orders.html" class="text-sm font-bold text-primary hover:text-primary-dark transition-all flex items-center gap-2">
+                            View All <i class="fas fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                    <div class="overflow-x-auto table-container">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50/50">
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Order ID</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Customer</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Product</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Amount</th>
+                                    <th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-50">
+                                <tr class="hover:bg-slate-50/80 transition-all">
+                                    <td class="px-6 py-5 font-bold text-slate-700">#DPT-9921</td>
+                                    <td class="px-6 py-5">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500">AR</div>
+                                            <span class="font-bold text-slate-900 text-sm">Alex Rivera</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-5 text-sm font-medium text-slate-500 font-mono">UI Framework v2</td>
+                                    <td class="px-6 py-5 font-black text-slate-900">$0.00</td>
+                                    <td class="px-6 py-5">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 text-green-600 text-[10px] font-black uppercase tracking-wider border border-green-100">
+                                            <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                                            Completed
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 transition-all">
+                                    <td class="px-6 py-5 font-bold text-slate-700">#DPT-9920</td>
+                                    <td class="px-6 py-5">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500">SJ</div>
+                                            <span class="font-bold text-slate-900 text-sm">Sarah Jenkins</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-5 text-sm font-medium text-slate-500 font-mono">Marketing Kit</td>
+                                    <td class="px-6 py-5 font-black text-slate-900">$0.00</td>
+                                    <td class="px-6 py-5">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-[10px] font-black uppercase tracking-wider border border-amber-100">
+                                            <span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                                            Pending
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<script>
+const token = localStorage.getItem('access_token');
+if (!token) {
+  window.location.href = '../login.html';
+} else {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    if (Date.now() > exp) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      window.location.href = '../login.html';
+    }
+  } catch(e) {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    window.location.href = '../login.html';
+  }
+}
+</script>
+
+    <script src="../assets/js/dealer/dealer.dashboard.js"></script>
+</body>
+</html>
