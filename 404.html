@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Deepproteam</title>
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        'slate-dark': '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900 overflow-hidden">
+
+    <div class="min-h-screen flex items-center justify-center p-6 relative">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+            <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-blue-100/50 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-blue-50 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-xl w-full text-center relative z-10">
+            <div class="relative inline-block mb-8">
+                <h1 class="text-[12rem] font-black leading-none tracking-tighter text-slate-200 select-none">
+                    404
+                </h1>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="bg-white px-6 py-2 rounded-2xl shadow-xl border border-slate-100 rotate-[-5deg]">
+                        <span class="text-primary font-black text-xl uppercase tracking-widest">Page Lost</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-3xl font-black text-slate-900 mb-4 tracking-tight">Whoops! You've ventured off the map.</h2>
+            <p class="text-slate-500 font-medium text-lg mb-10 leading-relaxed">
+                The digital asset or portal page you're looking for doesn't exist or has been moved to a new location.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="window.history.back()" class="w-full sm:w-auto px-8 py-4 bg-white border-2 border-slate-200 text-slate-600 rounded-2xl font-black text-xs uppercase tracking-widest hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-arrow-left"></i> Go Back
+                </button>
+                <a href="index.html" class="w-full sm:w-auto px-10 py-4 bg-primary text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 flex items-center justify-center gap-2">
+                    <i class="fas fa-home"></i> Home Dashboard
+                </a>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-slate-200/60">
+                <p class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6">Common Destinations</p>
+                <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+                    <a href="client/shop.html" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">Marketplace</a>
+                    <a href="dealer/dashboard.html" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">Dealer Portal</a>
+                    <a href="support.html" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">Help Center</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

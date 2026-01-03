@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support Center | Deepproteam</title>
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Core Design System -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "primary-dark": "#1d4ed8",
+              "primary-light": "#60a5fa",
+              accent: "#f59e0b",
+              "slate-dark": "#0f172a",
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'fade-up': 'fadeUp 0.8s ease-out forwards',
+            }
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-slate-50 font-sans antialiased text-slate-900 flex flex-col min-h-screen">
+    
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 transition-all duration-300">
+      <nav class="container mx-auto max-w-7xl px-4 h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img
+            src="assets/images/logo.svg"
+            alt="Deepproteam Logo"
+            class="h-9 w-auto transition-transform group-hover:scale-105"
+            onerror="this.style.display='none'"
+          />
+          <span class="text-xl font-bold tracking-tight text-slate-900">
+            Deep<span class="text-primary">pro</span>team
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
+          <li><a href="index.html" class="hover:text-primary transition">Home</a></li>
+          <li><a href="client/shop.html" class="hover:text-primary transition">Marketplace</a></li>
+          <li><a href="support.html" class="text-primary font-semibold hover:text-primary-dark transition">Support</a></li>
+        </ul>
+
+        <!-- Auth Buttons -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="login.html" class="text-sm font-semibold text-slate-600 hover:text-primary transition">Log in</a>
+          <a href="register.html" class="bg-primary text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="md:hidden text-2xl text-slate-600 hover:text-primary transition mobile-menu-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+      
+      <!-- Mobile Menu (Hidden by default) -->
+      <div class="nav-links hidden flex-col bg-white border-b border-slate-100 p-4 absolute top-full left-0 w-full shadow-lg md:hidden">
+        <a href="index.html" class="py-2 px-4 text-slate-600 font-medium hover:bg-slate-50 rounded-lg mb-2">Home</a>
+        <a href="client/shop.html" class="py-2 px-4 text-slate-600 font-medium hover:bg-slate-50 rounded-lg mb-2">Marketplace</a>
+        <a href="login.html" class="py-2 px-4 text-slate-600 font-medium hover:bg-slate-50 rounded-lg mb-2">Login</a>
+        <a href="register.html" class="py-2 px-4 bg-primary text-white font-bold rounded-lg text-center mt-2">Get Started</a>
+      </div>
+    </header>
+
+    <main class="flex-grow py-20 container mx-auto max-w-4xl px-4">
+      <div class="text-center mb-16 animate-[fadeUp_0.8s_ease-out_forwards]">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">How can we help?</h1>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto">Search our knowledge base or contact our support team for assistance.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Contact Card -->
+        <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 text-center group animate-[fadeUp_0.8s_ease-out_0.2s_forwards] opacity-0">
+          <div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h2 class="text-2xl font-bold mb-4 text-slate-900">Contact Support</h2>
+          <p class="text-slate-600 mb-8 leading-relaxed">
+            Have a specific issue? Our support team is available 24/7 to assist you.
+          </p>
+          <a href="mailto:support@deepproteam.com" class="inline-flex items-center justify-center w-full bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-primary-dark hover:-translate-y-1 transition-all shadow-lg shadow-primary/20">
+            Email Us
+          </a>
+        </div>
+
+        <!-- FAQ Card -->
+        <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 text-center group animate-[fadeUp_0.8s_ease-out_0.4s_forwards] opacity-0">
+          <div class="w-16 h-16 bg-amber-50 text-accent rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-book"></i>
+          </div>
+          <h2 class="text-2xl font-bold mb-4 text-slate-900">Documentation</h2>
+          <p class="text-slate-600 mb-8 leading-relaxed">
+            Browse our detailed guides and FAQs to find quick answers.
+          </p>
+          <a href="#" class="inline-flex items-center justify-center w-full bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 hover:border-slate-300 transition-all">
+            View Docs
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 pt-20 pb-10 border-t border-slate-200 mt-auto">
+      <div class="container mx-auto max-w-7xl px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div class="col-span-1 md:col-span-2">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <img src="assets/images/logo.svg" alt="Deepproteam Logo" class="h-8 w-auto">
+              <span class="text-xl font-bold text-slate-900">Deep<span class="text-primary">pro</span>team</span>
+            </a>
+            <p class="text-slate-500 mb-8 max-w-sm leading-relaxed">
+              Empowering digital creators and businesses with a secure, scalable marketplace infrastructure.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-white hover:bg-primary hover:border-primary transition-all duration-300">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-white hover:bg-primary hover:border-primary transition-all duration-300">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-white hover:bg-primary hover:border-primary transition-all duration-300">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-slate-900 mb-6">Platform</h4>
+            <ul class="space-y-4">
+              <li><a href="client/shop.html" class="text-slate-500 hover:text-primary transition-colors">Marketplace</a></li>
+              <li><a href="register.html" class="text-slate-500 hover:text-primary transition-colors">Become a Dealer</a></li>
+              <li><a href="login.html" class="text-slate-500 hover:text-primary transition-colors">Login</a></li>
+              <li><a href="#" class="text-slate-500 hover:text-primary transition-colors">Pricing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-slate-900 mb-6">Support</h4>
+            <ul class="space-y-4">
+              <li><a href="support.html" class="text-slate-500 hover:text-primary transition-colors">Help Center</a></li>
+              <li><a href="#" class="text-slate-500 hover:text-primary transition-colors">API Documentation</a></li>
+              <li><a href="#" class="text-slate-500 hover:text-primary transition-colors">Terms of Service</a></li>
+              <li><a href="#" class="text-slate-500 hover:text-primary transition-colors">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p class="text-slate-400 text-sm">
+            &copy; 2026 Deepproteam Inc. All rights reserved.
+          </p>
+          <div class="flex items-center gap-6 text-sm text-slate-400">
+            <a href="#" class="hover:text-slate-600 transition">Privacy</a>
+            <a href="#" class="hover:text-slate-600 transition">Terms</a>
+            <a href="#" class="hover:text-slate-600 transition">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/core/state.js"></script>
+    <script src="assets/js/core/router.js"></script>
+    <script src="assets/js/core/app.js">
+      
+    </script>
+
+    <script>
+      (function () {
+        try {
+          const token = localStorage.getItem('access_token');
+          if (!token) return;
+          const payload = JSON.parse(atob(token.split('.')[1]));
+          const exp = payload && payload.exp ? payload.exp * 1000 : 0;
+          if (!exp || Date.now() > exp) return;
+          const role = payload.role || 'client';
+          let href = 'client/shop.html';
+          if (role === 'admin') href = 'admin/dashboard-admin.html';
+          else if (role === 'dealer') href = 'dealer/dashboard.html';
+          document.querySelectorAll('a[href="login.html"]').forEach(a => {
+            a.href = href;
+            a.textContent = 'Dashboard';
+          });
+        } catch (e) {}
+      })();
+    </script>
+
+    <script>
+const token = localStorage.getItem('access_token');
+if (!token) {
+  window.location.href = 'login.html';
+} else {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const exp = payload.exp * 1000;
+    if (Date.now() > exp) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      window.location.href = 'login.html';
+    }
+  } catch(e) {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    window.location.href = 'login.html';
+  }
+}
+</script>
+
+  </body>
+</html>

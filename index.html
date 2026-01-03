@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Deepproteam - The ultimate marketplace for professional digital assets and services. Secure, fast, and reliable."
+    />
+    <title>Deepproteam | Professional Marketplace</title>
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Core Design System -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "primary-dark": "#1d4ed8",
+              "primary-light": "#60a5fa",
+              accent: "#f59e0b",
+              "slate-dark": "#0f172a",
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'fade-up': 'fadeUp 0.8s ease-out forwards',
+              'fade-up-delay-1': 'fadeUp 0.8s ease-out 0.2s forwards',
+              'fade-up-delay-2': 'fadeUp 0.8s ease-out 0.4s forwards',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom Text Gradient */
+      .text-gradient {
+        background: linear-gradient(135deg, #2563eb 0%, #06b6d4 50%, #22c55e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      /* Smooth reveal for sections */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-slate-900 font-sans antialiased selection:bg-primary/20 selection:text-primary-dark">
+    
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 transition-all duration-300">
+      <nav class="container mx-auto max-w-7xl px-4 h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img
+            src="assets/images/logo.svg"
+            alt="Deepproteam Logo"
+            class="h-9 w-auto transition-transform group-hover:scale-105"
+            onerror="this.style.display='none'"
+          />
+          <span class="text-xl font-bold tracking-tight text-slate-900">
+            Deep<span class="text-primary">pro</span>team
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
+          <li><a href="index.html" class="text-primary font-semibold hover:text-primary-dark transition">Home</a></li>
+          <li><a href="client/shop.html" class="hover:text-primary transition">Marketplace</a></li>
+          <li><a href="support.html" class="hover:text-primary transition">Support</a></li>
+        </ul>
+
+        <!-- Auth Buttons -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="login.html" class="text-sm font-semibold text-slate-600 hover:text-primary transition">Log in</a>
+          <a href="register.html" class="bg-primary text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="md:hidden text-2xl text-slate-600 hover:text-primary transition mobile-menu-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+      
+      <!-- Mobile Menu (Hidden by default) -->
+      <div class="nav-links hidden flex-col bg-white border-b border-slate-100 p-4 absolute top-full left-0 w-full shadow-lg md:hidden">
+        <a href="index.html" class="py-2 px-4 text-primary font-medium bg-blue-50 rounded-lg mb-2">Home</a>
+        <a href="client/shop.html" class="py-2 px-4 text-slate-600 font-medium hover:bg-slate-50 rounded-lg mb-2">Marketplace</a>
+        <a href="login.html" class="py-2 px-4 text-slate-600 font-medium hover:bg-slate-50 rounded-lg mb-2">Login</a>
+        <a href="register.html" class="py-2 px-4 bg-primary text-white font-bold rounded-lg text-center mt-2">Get Started</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50 via-white to-white opacity-70"></div>
+      <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
+
+      <div class="container mx-auto max-w-7xl px-4 text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold uppercase tracking-wide mb-8 animate-[fadeUp_0.8s_ease-out_forwards]">
+          <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+          New Features Available
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight opacity-0 animate-fade-up-delay-1">
+          The Hub for <br class="hidden md:block" />
+          <span class="text-gradient">Professional Excellence</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-up-delay-2">
+          A secure, multi-vendor marketplace designed for scaling businesses. 
+          Buy premium assets or start selling to a global audience today.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-[fadeUp_0.8s_ease-out_0.6s_forwards]">
+          <a href="client/shop.html" class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-primary-dark transition-all transform hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/30 flex items-center justify-center gap-2">
+            <i class="fas fa-shopping-bag"></i> Start Shopping
+          </a>
+          <a href="register.html" class="w-full sm:w-auto bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-full font-bold hover:bg-slate-50 hover:border-slate-300 transition-all hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fas fa-store"></i> Become a Dealer
+          </a>
+        </div>
+
+        <!-- Trust Stats -->
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto border-t border-slate-100 pt-10 opacity-0 animate-[fadeUp_0.8s_ease-out_0.8s_forwards]">
+          <div>
+            <div class="text-3xl font-bold text-slate-900">10k+</div>
+            <div class="text-sm text-slate-500 font-medium">Digital Assets</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-slate-900">500+</div>
+            <div class="text-sm text-slate-500 font-medium">Verified Dealers</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-slate-900">99%</div>
+            <div class="text-sm text-slate-500 font-medium">Satisfaction Rate</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-slate-900">24/7</div>
+            <div class="text-sm text-slate-500 font-medium">Expert Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="py-20 bg-white border-y border-slate-100">
+      <div class="container mx-auto max-w-7xl px-4">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why Deepproteam?</h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">We provide the infrastructure you need to succeed in the digital economy.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div class="p-8 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300 group reveal">
+            <div class="w-14 h-14 bg-blue-100 text-primary rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">Secure Transactions</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Every purchase is protected with state-of-the-art encryption and fraud prevention systems.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="p-8 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300 group reveal">
+            <div class="w-14 h-14 bg-amber-100 text-accent rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">Instant Delivery</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Get access to your digital assets immediately after purchase. No waiting, no hassle.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="p-8 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-300 group reveal">
+            <div class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">Growth Tools</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Dealers get powerful analytics and marketing tools to scale their business effectively.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portal Selection Section -->
+    <section class="py-24 bg-slate-50 relative overflow-hidden">
+      <!-- Decoration -->
+      <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+      
+      <div class="container mx-auto max-w-7xl px-4 relative z-10">
+        <div class="text-center mb-16 reveal">
+          <span class="text-primary font-bold uppercase tracking-wider text-sm mb-2 block">Get Started</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Select Your Portal</h2>
+          <p class="text-slate-600 max-w-xl mx-auto">
+            Choose the interface that matches your role to access your personalized dashboard.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Client Portal -->
+          <div class="group relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:-translate-y-2 reveal">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="w-16 h-16 bg-white shadow-md text-primary rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                <i class="fas fa-shopping-bag"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-slate-900">Client Portal</h3>
+              <p class="text-slate-500 mb-8 leading-relaxed">
+                Browse our extensive catalog, manage purchases, and download assets instantly.
+              </p>
+              <a href="client/shop.html" class="inline-flex items-center font-bold text-primary group-hover:gap-3 transition-all">
+                Enter Shop <i class="fas fa-arrow-right ml-2 text-sm transition-transform group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dealer Portal -->
+          <div class="group relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:-translate-y-2 reveal">
+            <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-transparent opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="w-16 h-16 bg-white shadow-md text-accent rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
+                <i class="fas fa-store"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-slate-900">Dealer Portal</h3>
+              <p class="text-slate-500 mb-8 leading-relaxed">
+                Manage your inventory, track sales performance, and grow your revenue.
+              </p>
+              <a href="dealer/dashboard.html" class="inline-flex items-center font-bold text-accent group-hover:gap-3 transition-all">
+                Seller Dashboard <i class="fas fa-arrow-right ml-2 text-sm transition-transform group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Admin Portal -->
+          <div class="group relative bg-slate-900 text-white rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:shadow-slate-900/20 transition-all duration-500 border border-slate-800 hover:-translate-y-2 reveal">
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-transparent opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="w-16 h-16 bg-slate-800 shadow-inner text-white rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-user-shield"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-white">Admin Portal</h3>
+              <p class="text-slate-400 mb-8 leading-relaxed">
+                Complete platform oversight, user management, and system configuration.
+              </p>
+              <a href="admin/check-admin.html" class="inline-flex items-center font-bold text-primary-light hover:text-white group-hover:gap-3 transition-all">
+                System Access <i class="fas fa-arrow-right ml-2 text-sm transition-transform group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto max-w-5xl px-4">
+        <div class="bg-primary rounded-3xl p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl reveal">
+          <!-- Background Pattern -->
+          <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+          
+          <div class="relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to get started?</h2>
+            <p class="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">
+              Join thousands of professionals who are already scaling their businesses with Deepproteam.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="register.html" class="w-full sm:w-auto bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-blue-50 transition-all shadow-lg">
+                Create Free Account
+              </a>
+              <a href="support.html" class="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all">
+                Contact Sales
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 pt-20 pb-10 border-t border-slate-200">
+      <div class="container mx-auto max-w-7xl px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div class="col-span-1 md:col-span-2">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <img src="assets/images/logo.svg" alt="Deepproteam Logo" class="h-8 w-auto">
+              <span class="text-xl font-bold text-slate-900">Deep<span class="text-primary">pro</span>team</span>
+            </a>
+            <p class="text-slate-500 mb-8 max-w-sm leading-relaxed">
+              Empowering digital creators and businesses with a secure, scalable marketplace infrastructure.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-white hover:bg-primary hover:border-primary transition-all duration-300">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-white hover:bg-primary hover:border-primary transition-all duration-300">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-white hover:bg-primary hover:border-primary transition-all duration-300">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-slate-900 mb-6">Platform</h4>
+            <ul class="space-y-4">
+              <li><a href="client/shop.html" class="text-slate-500 hover:text-primary transition-colors">Marketplace</a></li>
+              <li><a href="register.html" class="text-slate-500 hover:text-primary transition-colors">Become a Dealer</a></li>
+              <li><a href="login.html" class="text-slate-500 hover:text-primary transition-colors">Login</a></li>
+              <li><a href="#" class="text-slate-500 hover:text-primary transition-colors">Pricing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-slate-900 mb-6">Support</h4>
+            <ul class="space-y-4">
+              <li><a href="support.html" class="text-slate-500 hover:text-primary transition-colors">Help Center</a></li>
+              <li><a href="#" class="text-slate-500 hover:text-primary transition-colors">API Documentation</a></li>
+              <li><a href="#" class="text-slate-500 hover:text-primary transition-colors">Terms of Service</a></li>
+              <li><a href="#" class="text-slate-500 hover:text-primary transition-colors">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p class="text-slate-400 text-sm">
+            &copy; 2026 Deepproteam Inc. All rights reserved.
+          </p>
+          <div class="flex items-center gap-6 text-sm text-slate-400">
+            <a href="#" class="hover:text-slate-600 transition">Privacy</a>
+            <a href="#" class="hover:text-slate-600 transition">Terms</a>
+            <a href="#" class="hover:text-slate-600 transition">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/core/state.js"></script>
+    <script src="assets/js/core/router.js"></script>
+    <script src="assets/js/core/app.js"></script>
+    
+    <!-- Simple Scroll Reveal Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+          observer.observe(el);
+        });
+      });
+      
+    </script>
+    <script>
+      (function () {
+        try {
+          const token = localStorage.getItem('access_token');
+          if (!token) return;
+          const payload = JSON.parse(atob(token.split('.')[1]));
+          const exp = payload && payload.exp ? payload.exp * 1000 : 0;
+          if (!exp || Date.now() > exp) return;
+          const role = payload.role || 'client';
+          let href = 'client/shop.html';
+          if (role === 'admin') href = 'admin/dashboard-admin.html';
+          else if (role === 'dealer') href = 'dealer/dashboard.html';
+          document.querySelectorAll('a[href="login.html"]').forEach(a => {
+            a.href = href;
+            a.textContent = 'Dashboard';
+          });
+        } catch (e) {}
+      })();
+    </script>
+  </body>
+</html>
