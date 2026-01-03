@@ -1,0 +1,9 @@
+Hello {{ user.get_full_name|default:user.username }},
+
+Please verify your email address by opening the link below:
+{{ verify_url }}
+
+If you did not create an account, ignore this message.
+
+Thanks,
+Deepproteam Support
